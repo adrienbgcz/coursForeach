@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- <script src="./script.js" defer></script> -->
+  </head>
+  <body>
+
+    <script>
+      const getJoke = async () => {
+        try {
+          const response = await fetch(
+            "https://api.chucknorris.io/jokes/random"
+          );
+          const data = await response.json();
+          // console.log(data);
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      getJoke();
+
+
+
+      const sendUser = async () => {
+        const user = {
+          username: "toto",
+          mdp: "123",
+        };
+        try {
+          const response = await fetch("https://totos/", {
+            method: "POST",
+            headers: {
+              Accept: "application/json",
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      sendUser();
+
+
+      
+      const updateUser = async () => {
+        const id = 9;
+        const user = {
+          username: "toto",
+          mdp: "123",
+        };
+        try {
+          const response = await fetch(`https://totos/${id}`, {
+            method: "PUT",
+            headers: {
+              Accept: "application/json",
+              "Content-type": "application/json",
+            },
+            body: JSON.stringify(user),
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      updateUser();
+      
+      const updateUser = async () => {
+        const id = 9;
+        try {
+          const response = await fetch(`https://totos/${id}`, {
+            method: "DELETE",
+            headers: {
+              Accept: "application/json",
+              "Content-type": "application/json",
+            },
+          });
+        } catch (error) {
+          console.log(error);
+        }
+      };
+      updateUser();
+    </script>
+  </body>
+</html>

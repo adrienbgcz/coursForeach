@@ -1,0 +1,52 @@
+RECUPERATION D'UN PROJET EXISTANT
+
+git clone _url_du_projet.git
+
+SE POSITIONNER SUR UNE BRANCHE 
+git checkout _nom_branche
+
+
+CREATION D'UNE BRANCHE
+
+git branch _nom_nouvelle_branche
+git checkout _nom_nouvelle_branche
+
+OU
+
+git checkout -b _nom_nouvelle_branche
+
+FAIRE UN COMMIT
+git add <fichier à inclure dans le prochain commit>
+git commit -m "message de commit"
+
+ALLER VOIR L'ETAT DU REMOTE
+
+git fetch
+
+METTRE A JOUR L'ESPACE DE TRAVAIL REMOTE 
+
+git push origin test_avec_espace
+
+METTRE A JOUR UNE BRANCHE SUR LAQUELLE ON N'EST PAS EN TRAIN DE TRAVAILLER EN LOCAL
+
+git pull origin developp
+
+METTRE A JOUR UNE BRANCHE SUR LAQUELLE ON EST EN TRAIN DE TRAVAILLER (commit dessus) AVEC LES MODIFICATION DE DEVELOPP
+
+1ere possibilité
+aller voir si ya des trucs sur le r
+git fetch
+
+git checkout developp
+git pull developp
+
+git checkout ma_branche_de_travail
+git rebase developp
+
+2eme possibilité
+aller voir si ya des trucs sur le remote
+git fetch
+
+git rebase origin/developp
+
+attention, la branche developp locale n'est pas à jour.
